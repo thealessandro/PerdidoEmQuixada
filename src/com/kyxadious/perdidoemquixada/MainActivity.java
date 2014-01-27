@@ -7,6 +7,7 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -34,7 +35,7 @@ public class MainActivity extends FragmentActivity {
 		
 		googleMap = ((SupportMapFragment)(getSupportFragmentManager().findFragmentById(R.id.map))).getMap();
 		googleMap.setMyLocationEnabled(true);
-		googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(QUIXADA, 11));
 		
 		Marker municipio;
@@ -46,6 +47,8 @@ public class MainActivity extends FragmentActivity {
 			  						.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_launcher)));
 		}
 	    
+		
+		Log.d("QUANTIDADE-LUGARES", String.valueOf(lugares.size()));
 	}
 
 	@Override
