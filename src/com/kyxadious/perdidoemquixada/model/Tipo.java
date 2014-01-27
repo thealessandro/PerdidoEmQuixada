@@ -1,0 +1,19 @@
+package com.kyxadious.perdidoemquixada.model;
+
+public enum Tipo {
+	RESTAURANTE,
+	LANCHONETE,
+	SORVETERIA,
+	PIZZARIA,
+	BAR, 
+	SUPERMERCADO, 
+	LOJA_DE_DEPARTAMENTO,
+	PADARIA,
+	HOTEL,
+	BANCO,
+	FARMACIA,
+	POLICIA,
+	DETRAN,
+	HOSPITAL,
+	FACULDADE
+}
