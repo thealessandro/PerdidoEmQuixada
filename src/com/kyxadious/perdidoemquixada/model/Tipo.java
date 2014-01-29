@@ -15,5 +15,6 @@ public enum Tipo {
 	POLICIA,
 	DETRAN,
 	HOSPITAL,
-	FACULDADE
+	FACULDADE,
+	TODOS
 }

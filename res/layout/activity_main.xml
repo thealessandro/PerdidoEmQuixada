@@ -1,16 +1,27 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
+    android:id="@+id/drawer" >
+    
+     <fragment
+        android:id="@+id/map_main"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    
+    <ListView
+        android:id="@+id/drawer_list"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:divider="#fff"
+        android:dividerHeight="1dp"
+        android:background="#111"
+        android:choiceMode="singleChoice" 
+        android:cacheColorHint="#00000000"
+        android:layout_gravity="start"/>
+    
+</android.support.v4.widget.DrawerLayout>
 
-     <fragment 
-      android:id="@+id/map"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:name="com.google.android.gms.maps.SupportMapFragment"
-      />
-     
-     <!-- android:name="com.google.android.gms.maps.SupportMapFragment" -->
-
-</RelativeLayout>
+<!-- Background ListView becomes black when scrolling -->
+<!-- android:cacheColorHint="#00000000" -->

@@ -1,5 +1,7 @@
 package com.kyxadious.perdidoemquixada.model;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Lugar {
 
 	private String nome;
@@ -23,6 +25,11 @@ public class Lugar {
 		this.endereco = endereco;
 	}
 
+	
+	public LatLng getLocalizacao(){
+		return new LatLng(lat, lng);
+	}
+	
 	public String getNome() {
 		return nome;
 	}
