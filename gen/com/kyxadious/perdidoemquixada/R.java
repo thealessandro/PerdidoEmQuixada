@@ -9,6 +9,7 @@ package com.kyxadious.perdidoemquixada;
 
 public final class R {
     public static final class array {
+        public static final int icons_menu=0x7f0b0001;
         public static final int itens_menu=0x7f0b0000;
     }
     public static final class attr {
@@ -1091,15 +1092,86 @@ containing a value of this type.
         public static final int common_signin_btn_text_normal_light=0x7f020085;
         public static final int common_signin_btn_text_pressed_dark=0x7f020086;
         public static final int common_signin_btn_text_pressed_light=0x7f020087;
-        public static final int ic_adele=0x7f020088;
-        public static final int ic_drawer=0x7f020089;
-        public static final int ic_drawer_shadow=0x7f02008a;
-        public static final int ic_hospital=0x7f02008b;
-        public static final int ic_launcher=0x7f02008c;
-        public static final int ic_plusone_medium_off_client=0x7f02008d;
-        public static final int ic_plusone_small_off_client=0x7f02008e;
-        public static final int ic_plusone_standard_off_client=0x7f02008f;
-        public static final int ic_plusone_tall_off_client=0x7f020090;
+        public static final int ic_abelardo=0x7f020088;
+        public static final int ic_abrigo_bar=0x7f020089;
+        public static final int ic_americanas=0x7f02008a;
+        public static final int ic_banco=0x7f02008b;
+        public static final int ic_banco_bradesco=0x7f02008c;
+        public static final int ic_banco_brasil=0x7f02008d;
+        public static final int ic_banco_caixa=0x7f02008e;
+        public static final int ic_banco_nordeste=0x7f02008f;
+        public static final int ic_bar=0x7f020090;
+        public static final int ic_bertoldo=0x7f020091;
+        public static final int ic_bom_demais=0x7f020092;
+        public static final int ic_bookafe=0x7f020093;
+        public static final int ic_caroa=0x7f020094;
+        public static final int ic_delegacia=0x7f020095;
+        public static final int ic_detran=0x7f020096;
+        public static final int ic_detran_qx=0x7f020097;
+        public static final int ic_dona_rita=0x7f020098;
+        public static final int ic_drawer=0x7f020099;
+        public static final int ic_drawer_shadow=0x7f02009a;
+        public static final int ic_duarte=0x7f02009b;
+        public static final int ic_eudasio_baiao=0x7f02009c;
+        public static final int ic_extra_farma=0x7f02009d;
+        public static final int ic_faculdade=0x7f02009e;
+        public static final int ic_farmacia=0x7f02009f;
+        public static final int ic_fcrs=0x7f0200a0;
+        public static final int ic_feitosa=0x7f0200a1;
+        public static final int ic_forno_lenha=0x7f0200a2;
+        public static final int ic_geraldo=0x7f0200a3;
+        public static final int ic_guloseimas=0x7f0200a4;
+        public static final int ic_hospital=0x7f0200a5;
+        public static final int ic_hospital_eudasio=0x7f0200a6;
+        public static final int ic_hotel=0x7f0200a7;
+        public static final int ic_hotel_belas_artes=0x7f0200a8;
+        public static final int ic_hotel_itajuba=0x7f0200a9;
+        public static final int ic_hotel_monolitos=0x7f0200aa;
+        public static final int ic_hotel_nova_aldeota=0x7f0200ab;
+        public static final int ic_ifce=0x7f0200ac;
+        public static final int ic_irashai=0x7f0200ad;
+        public static final int ic_lanchonete=0x7f0200ae;
+        public static final int ic_launcher=0x7f0200af;
+        public static final int ic_le_gourmet=0x7f0200b0;
+        public static final int ic_loja_departamento=0x7f0200b1;
+        public static final int ic_mac_lanches=0x7f0200b2;
+        public static final int ic_mapa=0x7f0200b3;
+        public static final int ic_marivaldo=0x7f0200b4;
+        public static final int ic_maternidade=0x7f0200b5;
+        public static final int ic_menino_jesus=0x7f0200b6;
+        public static final int ic_meu_escritorio=0x7f0200b7;
+        public static final int ic_mr_mix=0x7f0200b8;
+        public static final int ic_nori=0x7f0200b9;
+        public static final int ic_padaria=0x7f0200ba;
+        public static final int ic_pague_menos=0x7f0200bb;
+        public static final int ic_pe_serra=0x7f0200bc;
+        public static final int ic_perpetuo_socorro=0x7f0200bd;
+        public static final int ic_pinheiro_super=0x7f0200be;
+        public static final int ic_pizzaria=0x7f0200bf;
+        public static final int ic_plusone_medium_off_client=0x7f0200c0;
+        public static final int ic_plusone_small_off_client=0x7f0200c1;
+        public static final int ic_plusone_standard_off_client=0x7f0200c2;
+        public static final int ic_plusone_tall_off_client=0x7f0200c3;
+        public static final int ic_policia=0x7f0200c4;
+        public static final int ic_q_doce=0x7f0200c5;
+        public static final int ic_q_pao=0x7f0200c6;
+        public static final int ic_quartel=0x7f0200c7;
+        public static final int ic_raizes_bar=0x7f0200c8;
+        public static final int ic_rede_acai=0x7f0200c9;
+        public static final int ic_rei_lanche=0x7f0200ca;
+        public static final int ic_rest_itajuba=0x7f0200cb;
+        public static final int ic_restaurante=0x7f0200cc;
+        public static final int ic_saborear=0x7f0200cd;
+        public static final int ic_sabores_sertao=0x7f0200ce;
+        public static final int ic_sete_setembeo=0x7f0200cf;
+        public static final int ic_skina=0x7f0200d0;
+        public static final int ic_sorveteria=0x7f0200d1;
+        public static final int ic_sorveteria_mix=0x7f0200d2;
+        public static final int ic_supermercado=0x7f0200d3;
+        public static final int ic_uberlandia=0x7f0200d4;
+        public static final int ic_uece=0x7f0200d5;
+        public static final int ic_ufc=0x7f0200d6;
+        public static final int ic_vale_pedras=0x7f0200d7;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040024;
@@ -1141,7 +1213,8 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040017;
         public static final int abs__title=0x7f04001f;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f04003f;
+        public static final int action_mapa=0x7f04003f;
+        public static final int action_settings=0x7f040040;
         public static final int disableHome=0x7f040009;
         public static final int drawer=0x7f040037;
         public static final int drawer_list=0x7f040039;
@@ -1194,19 +1267,21 @@ containing a value of this type.
         public static final int abs__search_view=0x7f030013;
         public static final int abs__simple_dropdown_hint=0x7f030014;
         public static final int activity_list_view=0x7f030015;
-        public static final int activity_main=0x7f030016;
-        public static final int activity_map=0x7f030017;
-        public static final int activity_restaurante=0x7f030018;
-        public static final int drawer_list_item=0x7f030019;
-        public static final int lugares_list_item=0x7f03001a;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001b;
-        public static final int sherlock_spinner_item=0x7f03001c;
+        public static final int activity_lugar=0x7f030016;
+        public static final int activity_main=0x7f030017;
+        public static final int activity_map=0x7f030018;
+        public static final int activity_restaurante=0x7f030019;
+        public static final int drawer_list_item=0x7f03001a;
+        public static final int lugares_list_item=0x7f03001b;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001c;
+        public static final int sherlock_spinner_item=0x7f03001d;
     }
     public static final class menu {
         public static final int list_view=0x7f0c0000;
-        public static final int main=0x7f0c0001;
-        public static final int map=0x7f0c0002;
-        public static final int restaurante=0x7f0c0003;
+        public static final int lugar=0x7f0c0001;
+        public static final int main=0x7f0c0002;
+        public static final int map=0x7f0c0003;
+        public static final int restaurante=0x7f0c0004;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1248,6 +1323,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
+        public static final int action_mapa=0x7f090029;
         public static final int action_settings=0x7f090028;
         public static final int app_name=0x7f090027;
         /**   Title for notification shown when GooglePlayServices needs to be
@@ -1343,9 +1419,10 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f09001f;
         public static final int drawer_close=0x7f09002c;
         public static final int drawer_open=0x7f09002b;
-        public static final int hello_world=0x7f090029;
-        public static final int title_activity_list_view=0x7f09002d;
-        public static final int title_activity_map=0x7f09002a;
+        public static final int hello_world=0x7f09002a;
+        public static final int title_activity_list_view=0x7f09002e;
+        public static final int title_activity_lugar=0x7f09002f;
+        public static final int title_activity_map=0x7f09002d;
     }
     public static final class style {
         /** 

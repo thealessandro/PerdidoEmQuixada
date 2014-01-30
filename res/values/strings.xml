@@ -3,19 +3,51 @@
 
     <string name="app_name">Perdido em Quixadá</string>
     <string name="action_settings">Settings</string>
+    <string name="action_mapa">Mapa</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_map">Mapa</string>
     <string name="drawer_open">Open the Drawer</string>
     <string name="drawer_close">Close the Drawer</string>
 
     <string-array name="itens_menu">
-        <item>Mapa</item>
-        <item>Restaurante</item>
-        <item>Pizzaria</item>
-        <item>Hotel</item>
+        <item>Todos</item>
+        <item>Banco</item>
         <item>Bar</item>
+        <item>Detran</item>
+        <item>Faculdade</item>
+        <item>Farmácia</item>
+        <item>Hospital</item>
+        <item>Hotel</item>
+        <item>Lanchonete</item>
+        <item>Loja de departamento</item>
+        <item>Padaria</item>
+        <item>Pizzaria</item>
+        <item>Polícia</item>
+        <item>Restaurante</item>
+        <item>Sorveteria</item>
+        <item>Supermercado</item>
     </string-array>
 
+    <integer-array name="icons_menu">
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_banco</item>
+        <item>@drawable/ic_bar</item>
+        <item>@drawable/ic_detran</item>
+        <item>@drawable/ic_faculdade</item>
+        <item>@drawable/ic_farmacia</item>
+        <item>@drawable/ic_hospital</item>
+        <item>@drawable/ic_hotel</item>
+        <item>@drawable/ic_lanchonete</item>
+        <item>@drawable/ic_loja_departamento</item>
+        <item>@drawable/ic_padaria</item>
+        <item>@drawable/ic_pizzaria</item>
+        <item>@drawable/ic_policia</item>
+        <item>@drawable/ic_restaurante</item>
+        <item>@drawable/ic_sorveteria</item>
+        <item>@drawable/ic_supermercado</item>
+    </integer-array>
+
+    <string name="title_activity_map">MapaActivity</string>
     <string name="title_activity_list_view">ListViewActivity</string>
+    <string name="title_activity_lugar">LugarActivity</string>
 
 </resources>

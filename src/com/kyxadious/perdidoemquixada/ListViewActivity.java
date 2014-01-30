@@ -7,45 +7,73 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.kyxadious.perdidoemquixada.model.CustomListViewAdapter;
+import com.kyxadious.perdidoemquixada.model.EscolherLugar;
+import com.kyxadious.perdidoemquixada.model.Lugar;
+import com.kyxadious.perdidoemquixada.model.LugaresDeQuixada;
 import com.kyxadious.perdidoemquixada.model.RowItem;
+import com.kyxadious.perdidoemquixada.model.Tipo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 public class ListViewActivity extends SherlockFragmentActivity {
 
+	
 
-
-	RowItem rowItem;
-	List<RowItem> rowItems = new ArrayList<RowItem>();
-	public static final String[] titles = {"text", "text", "text", "text", "text"};
-	public static final Integer[] icons = { R.drawable.ic_hospital,
-			R.drawable.ic_adele, R.drawable.ic_launcher,
-			R.drawable.ic_launcher, R.drawable.ic_launcher };
+	private Intent intent;
+	private ListView listView;
+	private MenuItem menuItem;
+	
+	private Tipo tipoDoLugar;
+	private RowItem rowItem;
+	private List<RowItem> rowItems; 
+	private ArrayList<Lugar> lugares;
+	private LugaresDeQuixada lugaresDeQuixada;
+	private EscolherLugar escolherLugar;
+	private CustomListViewAdapter adapter;
+	
+	public static final String TITULO = "com.kyxadious.perdidoemquixada.titulolugarescolhido";
+	public static final String TIPO = "com.kyxadious.perdidoemquixada.tipolugarescolhido";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_view);
 
+		
+		listView = (ListView) findViewById(R.id.list_view);
+		
 		/* Ativa o butão home do action bar */
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 
 		/* Setting nome da action bar */
-		Intent intent = getIntent();
-		setTitle(intent.getStringExtra("NOME-ACTION-BAR").toString());
+		intent = getIntent();
+		setTitle(intent.getStringExtra(TITULO).toString());
+		tipoDoLugar = (Tipo) intent.getSerializableExtra(TIPO);
 		
-		ListView listView = (ListView) findViewById(R.id.list_view);
+		/* Trazendo os lugares */
+		lugaresDeQuixada = new LugaresDeQuixada();
+		escolherLugar = new EscolherLugar(lugaresDeQuixada.getLugaresDeQuixada());
+		lugares = escolherLugar.getLugares(tipoDoLugar);
 		
-		for (int i=0; i < titles.length; i++) {
-			rowItem = new RowItem(icons[i], titles[i]);
+		/* logging do número de lugares escolhidos */
+		Log.d("LUGARES_ESCOLHIDOS", String.valueOf(lugares.size()));
+		
+		rowItems = new ArrayList<RowItem>();
+		for (int i = 0; i < lugares.size(); i++ ) {
+			rowItem = new RowItem();
+			rowItem.setImg(lugares.get(i).getIdImag());
+			rowItem.setText(lugares.get(i).getNome());
 			rowItems.add(rowItem);
-			
 		}
+		
 		//mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mFragmentTitles));
-		CustomListViewAdapter adapter = new CustomListViewAdapter(getApplicationContext(), 
+		
+		
+		adapter = new CustomListViewAdapter(getApplicationContext(), 
 																  R.layout.lugares_list_item, 
 																  rowItems,
 																  R.id.image_view_lugar,
@@ -56,8 +84,10 @@ public class ListViewActivity extends SherlockFragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		// getMenuInflater().inflate(R.menu.list_view, menu);
+		menuItem = menu.add(0, R.id.action_mapa, 0, null);
+		menuItem.setIcon(R.drawable.ic_mapa).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		
 		getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -72,6 +102,13 @@ public class ListViewActivity extends SherlockFragmentActivity {
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			return true;
+		case R.id.action_mapa:
+			intent = new Intent(getApplicationContext(), MapActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.putExtra(TITULO, getTitle().toString());
+			intent.putExtra(TIPO, tipoDoLugar);
+			startActivity(intent);
+			return true;	
 		default:
 			return super.onOptionsItemSelected(item);
 		}

@@ -17,16 +17,27 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.kyxadious.perdidoemquixada.model.EscolherLugares;
+import com.kyxadious.perdidoemquixada.model.EscolherIcone;
+import com.kyxadious.perdidoemquixada.model.EscolherLugar;
 import com.kyxadious.perdidoemquixada.model.Lugar;
 import com.kyxadious.perdidoemquixada.model.LugaresDeQuixada;
 import com.kyxadious.perdidoemquixada.model.Tipo;
 
 public class MapActivity extends SherlockFragmentActivity {
 
+	private Intent intent;
+	private Marker marcador;
 	private GoogleMap googleMap;
-	private LugaresDeQuixada lugaresDeQuixada = new LugaresDeQuixada();
-	static final LatLng QUIXADA = new LatLng(-4.970261, -39.015738);
+	private LatLng quixada = new LatLng(-4.970261, -39.015738);
+	
+	private Tipo tipoDoLugar;
+	private ArrayList<Lugar> lugares;
+	private LugaresDeQuixada lugaresDeQuixada;
+	private EscolherIcone escolherIcone;
+	private EscolherLugar escolherLugar;
+
+	public static final String TITULO = "com.kyxadious.perdidoemquixada.titulolugarescolhido";
+	public static final String TIPO = "com.kyxadious.perdidoemquixada.tipolugarescolhido";
 
 	// Início onCreate
 	@Override
@@ -39,44 +50,37 @@ public class MapActivity extends SherlockFragmentActivity {
 		getSupportActionBar().setHomeButtonEnabled(true);
 		
 		/* Setting nome da action bar */
-		//Intent intent = getIntent();
-		//setTitle(intent.getStringExtra("NOME-ACTION-BAR").toString());
+		intent = getIntent();
+		setTitle(intent.getStringExtra(TITULO).toString());
+		tipoDoLugar = (Tipo) intent.getSerializableExtra(TIPO);
 
-		googleMap = ((SupportMapFragment) (getSupportFragmentManager()
-				.findFragmentById(R.id.map))).getMap();
+		googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map))).getMap();
 		googleMap.setMyLocationEnabled(true);
 		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(QUIXADA, 11));
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quixada, 11));
 
-		Marker municipio;
-		ArrayList<Lugar> lugares = lugaresDeQuixada.getLugaresDeQuixada();
-		Log.d("DEBUG-1-QUANTIDADE-LUGARES", String.valueOf(lugares.size()));
 
-		EscolherLugares escolherLugares = new EscolherLugares(lugares);
-		Log.d("DEBUG-2-QUANTIDADE-LUGARES", String.valueOf(lugares.size()));
+		/* Trazendo os lugares */
+		escolherIcone = new EscolherIcone();
+		lugaresDeQuixada = new LugaresDeQuixada();
+		escolherLugar = new EscolherLugar(lugaresDeQuixada.getLugaresDeQuixada());
+		lugares = escolherLugar.getLugares(tipoDoLugar);
 
-		ArrayList<Lugar> lugaresEscolhidos = escolherLugares
-				.getLugares(Tipo.RESTAURANTE);
-		Log.d("DEBUG-3-QUANTIDADE-LUGARES-ESCOLHIDOS",
-				String.valueOf(lugaresEscolhidos.size()));
-
-		for (int i = 0; i < lugaresEscolhidos.size(); i++) {
-			municipio = googleMap.addMarker(new MarkerOptions()
-					.position(lugaresEscolhidos.get(i).getLocalizacao())
-					.title(lugaresEscolhidos.get(i).getNome())
+		for (int i = 0; i < lugares.size(); i++) {
+			marcador = googleMap.addMarker(new MarkerOptions()
+					.position(lugares.get(i).getLocalizacao())
+					.title(lugares.get(i).getNome())
 					.icon(BitmapDescriptorFactory
-							.fromResource(R.drawable.ic_launcher)));
+					.fromResource(escolherIcone.getIcone(tipoDoLugar))));
 		}
 
-		Log.d("QUANTIDADE-LUGARES-ESCOLHIDOS",
-				String.valueOf(lugaresEscolhidos.size()));
+		Log.d("QUANTIDADE-LUGARES-ESCOLHIDOS", String.valueOf(lugares.size()));
 	}
 	// Fim onCreate
 
 	// Início onCreateOptionsMenu
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		// getMenuInflater().inflate(R.menu.map, menu);
 		getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;

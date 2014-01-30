@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 public class Lugar {
 
 	private String nome;
+	private int idImag;
 	private Tipo tipo;
 	private String descricao;
 	private double lat;
@@ -15,9 +16,10 @@ public class Lugar {
 
 	}
 
-	public Lugar(String nome, Tipo tipo, String descricao, double lat,
-			double lng, String endereco) {
+	public Lugar(String nome, int idImag, Tipo tipo, String descricao,
+			double lat, double lng, String endereco) {
 		this.nome = nome;
+		this.idImag = idImag;
 		this.tipo = tipo;
 		this.descricao = descricao;
 		this.lat = lat;
@@ -25,17 +27,24 @@ public class Lugar {
 		this.endereco = endereco;
 	}
 
-	
-	public LatLng getLocalizacao(){
+	public LatLng getLocalizacao() {
 		return new LatLng(lat, lng);
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public int getIdImag() {
+		return idImag;
+	}
+
+	public void setIdImag(int idImag) {
+		this.idImag = idImag;
 	}
 
 	public Tipo getTipo() {

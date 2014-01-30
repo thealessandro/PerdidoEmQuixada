@@ -59,6 +59,10 @@
             android:name="com.kyxadious.perdidoemquixada.ListViewActivity"
             android:label="@string/title_activity_list_view" >
         </activity>
+        <activity
+            android:name="com.kyxadious.perdidoemquixada.LugarActivity"
+            android:label="@string/title_activity_lugar" >
+        </activity>
     </application>
 
 </manifest>

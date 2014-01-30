@@ -15,8 +15,8 @@
         <!-- imagem do lugar -->
         <ImageView
             android:id="@+id/image_view_lugar"
-            android:layout_width="60dp"
-            android:layout_height="60dp" />
+            android:layout_width="70dp"
+            android:layout_height="70dp" />
     </LinearLayout>
 
     <!-- nome do lugar -->
@@ -27,6 +27,7 @@
         android:textSize="17dp"
         android:textStyle="bold"
         android:minHeight="60dp"
+        android:gravity="center_vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:textColor="#fff" />

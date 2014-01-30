@@ -15,7 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.kyxadious.perdidoemquixada.model.CustomListViewAdapter;
-import com.kyxadious.perdidoemquixada.model.EscolherLugares;
+import com.kyxadious.perdidoemquixada.model.EscolherIcone;
+import com.kyxadious.perdidoemquixada.model.EscolherLugar;
 import com.kyxadious.perdidoemquixada.model.Lugar;
 import com.kyxadious.perdidoemquixada.model.LugaresDeQuixada;
 import com.kyxadious.perdidoemquixada.model.RowItem;
@@ -24,6 +25,7 @@ import com.kyxadious.perdidoemquixada.model.Tipo;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -43,27 +45,27 @@ import android.widget.SimpleAdapter;
 public class MainActivity extends SherlockFragmentActivity {
 
 	
+	private Marker pontoNoMapa;
 	private GoogleMap googleMap;
-	private LugaresDeQuixada lugaresDeQuixada = new LugaresDeQuixada();
-	static final LatLng QUIXADA = new LatLng(-4.970261, -39.015738);
+	private LatLng quixada; 
 	
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-	
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
-	private String[] mFragmentTitles;
 	
-	RowItem rowItem;
-	List<RowItem> rowItems = new ArrayList<RowItem>();
-	public static final Integer[] icons = { R.drawable.ic_launcher, 
-											  R.drawable.ic_launcher, 
-											  R.drawable.ic_launcher,
-											  R.drawable.ic_launcher,
-											  R.drawable.ic_launcher}; 
+	private Tipo tipoDoLugar;
+	private RowItem rowItem;
+	private List<RowItem> rowItems;
+	private String[] nomeDosTipos;
+	private TypedArray iconeDosTipos;
+	private ArrayList<Lugar> lugares;
+	private EscolherIcone escolherIcone;
+	private LugaresDeQuixada lugaresDeQuixada;
 	
-	
+	public static final String TITULO = "com.kyxadious.perdidoemquixada.titulolugarescolhido";
+	public static final String TIPO = "com.kyxadious.perdidoemquixada.tipolugarescolhido";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -73,21 +75,22 @@ public class MainActivity extends SherlockFragmentActivity {
 		
 		
 		mTitle = mDrawerTitle = getTitle();
-		mFragmentTitles = getResources().getStringArray(R.array.itens_menu);
+		nomeDosTipos = getResources().getStringArray(R.array.itens_menu);
+		iconeDosTipos = getResources().obtainTypedArray(R.array.icons_menu);
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer);
 		mDrawerList = (ListView)findViewById(R.id.drawer_list);
 		
+		/* Logging */
+		Log.d("ICON",String.valueOf(iconeDosTipos.getResourceId(0, 0)));
+		
 		//mDrawerLayout.setDrawerShadow(R.drawable.ic_drawer_shadow, GravityCompat.START);
 		
-		
-	
-		
-		for (int i=0; i< mFragmentTitles.length; i++) {
-			rowItem = new RowItem(icons[i], mFragmentTitles[i]);
+		rowItems = new ArrayList<RowItem>();
+		for (int i=0; i< nomeDosTipos.length; i++) {
+			rowItem = new RowItem(iconeDosTipos.getResourceId(i, 0), nomeDosTipos[i]);
 			rowItems.add(rowItem);
-			
 		}
-		//mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mFragmentTitles));
+		
 		CustomListViewAdapter adapter = new CustomListViewAdapter(getApplicationContext(), 
 																  R.layout.drawer_list_item, 
 																  rowItems, 
@@ -95,18 +98,11 @@ public class MainActivity extends SherlockFragmentActivity {
 																  R.id.text1);
 		mDrawerList.setAdapter(adapter);
 		
-		
-		
-		
-		
-		
-		
+
 		
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-		
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
-		
 		mDrawerToggle = new ActionBarDrawerToggle(this, 
 				mDrawerLayout, 
 				R.drawable.ic_drawer, 
@@ -155,18 +151,10 @@ public class MainActivity extends SherlockFragmentActivity {
 			return true;
 		case R.id.action_settings:
 			
-			//Fragment newFragment = new Fragment_1();
-			//FragmentManager fm = getSupportFragmentManager();
-			
 			Intent intent = new Intent(MainActivity.this, MapActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
-			//Sources sources = new Sources();
-			
 		
-			//fm.beginTransaction()
-			//.replace(R.id.content_frame, sources)
-			//.commit();
 			
 			return true;
 		default:
@@ -182,29 +170,90 @@ public class MainActivity extends SherlockFragmentActivity {
 	}
 	
 	private void selectItem(int position){
-		Intent intent;
+		Intent intent = new Intent(getApplicationContext(), ListViewActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.putExtra(TITULO, nomeDosTipos[position]);
 		
 		switch(position){
 		case 1:
-			intent = new Intent(getApplicationContext(), ListViewActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			intent.putExtra("NOME-ACTION-BAR", mFragmentTitles[position]);
+			// Banco
+			intent.putExtra(TIPO, Tipo.BANCO);
 			startActivity(intent);
 			break;
 		case 2:
-		
+			// Bar
+			intent.putExtra(TIPO, Tipo.BAR);
+			startActivity(intent);
 			break;
 		case 3:
-		
+			// Detran
+			intent.putExtra(TIPO, Tipo.DETRAN);
+			startActivity(intent);
 			break;
 		case 4:
-		
+			// Faculdade
+			intent.putExtra(TIPO, Tipo.FACULDADE);
+			startActivity(intent);
 			break;
-		}
-		
+		case 5:
+			// Farmácia
+			intent.putExtra(TIPO, Tipo.FARMACIA);
+			startActivity(intent);
+			break;
+		case 6:
+			// Hospital 
+			intent.putExtra(TIPO, Tipo.HOSPITAL);
+			startActivity(intent);
+			break;
+		case 7:
+			// Hotel 
+			intent.putExtra(TIPO, Tipo.HOTEL);
+			startActivity(intent);
+			break;
+		case 8:
+			// Lanchonete
+			intent.putExtra(TIPO, Tipo.LANCHONETE);
+			startActivity(intent);
+			break;
+		case 9:
+			// Loja de departamento 
+			intent.putExtra(TIPO, Tipo.LOJA_DE_DEPARTAMENTO);
+			startActivity(intent);
+			break;
+		case 10:
+			// Padaria
+			intent.putExtra(TIPO, Tipo.PADARIA);
+			startActivity(intent);
+			break;
+		case 11:
+			// Pizzaria
+			intent.putExtra(TIPO, Tipo.PIZZARIA);
+			startActivity(intent);
+			break;
+		case 12:
+			// Polícia
+			intent.putExtra(TIPO, Tipo.POLICIA);
+			startActivity(intent);
+			break;
+		case 13:
+			// Restaurante 
+			intent.putExtra(TIPO, Tipo.RESTAURANTE);
+			startActivity(intent);
+			break;
+		case 14:
+			// Sorveteria
+			intent.putExtra(TIPO, Tipo.SORVETERIA);
+			startActivity(intent);
+			break;
+		case 15:
+			// Supermercado
+			intent.putExtra(TIPO, Tipo.SUPERMERCADO);
+			startActivity(intent);
+			break;
+		}	
 		
 		mDrawerList.setItemChecked(position, true);
-		setTitle(mFragmentTitles[position]);
+		setTitle(nomeDosTipos[position]);
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
 	
@@ -227,36 +276,29 @@ public class MainActivity extends SherlockFragmentActivity {
 	}
 	
 	public void mapaPrincipal(){
-		googleMap = ((SupportMapFragment) (getSupportFragmentManager()
-				.findFragmentById(R.id.map_main))).getMap();
+		
+		quixada = new LatLng(-4.970261, -39.015738);
+		googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map_main))).getMap();
 		googleMap.setMyLocationEnabled(true);
 		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(QUIXADA, 11));
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quixada, 11));
 
-		Marker municipio;
-		ArrayList<Lugar> lugares = lugaresDeQuixada.getLugaresDeQuixada();
-		Log.d("DEBUG-1-QUANTIDADE-LUGARES", String.valueOf(lugares.size()));
+		/* Trazendo os lugares */
+		escolherIcone = new EscolherIcone();
+		lugaresDeQuixada = new LugaresDeQuixada();
+		lugares = lugaresDeQuixada.getLugaresDeQuixada();		
 
-		EscolherLugares escolherLugares = new EscolherLugares(lugares);
-		Log.d("DEBUG-2-QUANTIDADE-LUGARES", String.valueOf(lugares.size()));
-
-		ArrayList<Lugar> lugaresEscolhidos = escolherLugares
-				.getLugares(Tipo.TODOS);
-		
-		Log.d("DEBUG-3-QUANTIDADE-LUGARES-ESCOLHIDOS",
-				String.valueOf(lugaresEscolhidos.size()));
-
-		for (int i = 0; i < lugaresEscolhidos.size(); i++) {
-			municipio = googleMap.addMarker(new MarkerOptions()
-					.position(lugaresEscolhidos.get(i).getLocalizacao())
-					.title(lugaresEscolhidos.get(i).getNome())
+		for (int i = 0; i < lugares.size(); i++) {
+			
+			tipoDoLugar = lugares.get(i).getTipo();
+			pontoNoMapa = googleMap.addMarker(new MarkerOptions()
+					.position(lugares.get(i).getLocalizacao())
+					.title(lugares.get(i).getNome())
 					.icon(BitmapDescriptorFactory
-							.fromResource(R.drawable.ic_launcher)));
+					.fromResource( escolherIcone.getIcone(tipoDoLugar) )));
 		}
 
-		Log.d("QUANTIDADE-LUGARES-ESCOLHIDOS",
-				String.valueOf(lugaresEscolhidos.size()));
-
+		Log.d("QUANTIDADE_DE_LUGARES",String.valueOf(lugares.size()));
 	}
 
 
