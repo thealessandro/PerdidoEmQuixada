@@ -49,6 +49,7 @@ public class MainActivity extends SherlockFragmentActivity {
 	private GoogleMap googleMap;
 	private LatLng quixada; 
 	
+	private MenuItem menuItem;
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -136,8 +137,9 @@ public class MainActivity extends SherlockFragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		menuItem = menu.add(0, R.id.action_settings, 0, null);
+		menuItem.setIcon(R.drawable.ic_sobre).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		//getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 	
@@ -151,12 +153,9 @@ public class MainActivity extends SherlockFragmentActivity {
 			}
 			return true;
 		case R.id.action_settings:
-			
-			Intent intent = new Intent(MainActivity.this, MapActivity.class);
+			Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
-		
-			
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

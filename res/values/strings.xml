@@ -47,6 +47,6 @@
     <string name="title_activity_map">MapaActivity</string>
     <string name="title_activity_list_view">ListViewActivity</string>
     <string name="title_activity_lugar">LugarActivity</string>
-    <string name="title_activity_sobre">SobreActivity</string>
+    <string name="title_activity_sobre">Sobre</string>
 
 </resources>
