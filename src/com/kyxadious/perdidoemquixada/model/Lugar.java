@@ -1,8 +1,9 @@
 package com.kyxadious.perdidoemquixada.model;
 
+import java.io.Serializable;
 import com.google.android.gms.maps.model.LatLng;
 
-public class Lugar {
+public class Lugar implements Serializable{
 
 	private String nome;
 	private int idImag;

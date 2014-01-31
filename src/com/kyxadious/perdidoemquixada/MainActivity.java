@@ -119,7 +119,8 @@ public class MainActivity extends SherlockFragmentActivity {
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 		if (savedInstanceState == null){
-			selectItem(0);
+			// Se está comentado é porque tem um motivo muito importante
+			//selectItem(0);
 		}
 		
 		/* Mapa principal */
@@ -175,77 +176,77 @@ public class MainActivity extends SherlockFragmentActivity {
 		intent.putExtra(TITULO, nomeDosTipos[position]);
 		
 		switch(position){
-		case 1:
+		case 0:
 			// Banco
 			intent.putExtra(TIPO, Tipo.BANCO);
 			startActivity(intent);
 			break;
-		case 2:
+		case 1:
 			// Bar
 			intent.putExtra(TIPO, Tipo.BAR);
 			startActivity(intent);
 			break;
-		case 3:
+		case 2:
 			// Detran
 			intent.putExtra(TIPO, Tipo.DETRAN);
 			startActivity(intent);
 			break;
-		case 4:
+		case 3:
 			// Faculdade
 			intent.putExtra(TIPO, Tipo.FACULDADE);
 			startActivity(intent);
 			break;
-		case 5:
+		case 4:
 			// Farmácia
 			intent.putExtra(TIPO, Tipo.FARMACIA);
 			startActivity(intent);
 			break;
-		case 6:
+		case 5:
 			// Hospital 
 			intent.putExtra(TIPO, Tipo.HOSPITAL);
 			startActivity(intent);
 			break;
-		case 7:
+		case 6:
 			// Hotel 
 			intent.putExtra(TIPO, Tipo.HOTEL);
 			startActivity(intent);
 			break;
-		case 8:
+		case 7:
 			// Lanchonete
 			intent.putExtra(TIPO, Tipo.LANCHONETE);
 			startActivity(intent);
 			break;
-		case 9:
+		case 8:
 			// Loja de departamento 
 			intent.putExtra(TIPO, Tipo.LOJA_DE_DEPARTAMENTO);
 			startActivity(intent);
 			break;
-		case 10:
+		case 9:
 			// Padaria
 			intent.putExtra(TIPO, Tipo.PADARIA);
 			startActivity(intent);
 			break;
-		case 11:
+		case 10:
 			// Pizzaria
 			intent.putExtra(TIPO, Tipo.PIZZARIA);
 			startActivity(intent);
 			break;
-		case 12:
+		case 11:
 			// Polícia
 			intent.putExtra(TIPO, Tipo.POLICIA);
 			startActivity(intent);
 			break;
-		case 13:
+		case 12:
 			// Restaurante 
 			intent.putExtra(TIPO, Tipo.RESTAURANTE);
 			startActivity(intent);
 			break;
-		case 14:
+		case 13:
 			// Sorveteria
 			intent.putExtra(TIPO, Tipo.SORVETERIA);
 			startActivity(intent);
 			break;
-		case 15:
+		case 14:
 			// Supermercado
 			intent.putExtra(TIPO, Tipo.SUPERMERCADO);
 			startActivity(intent);

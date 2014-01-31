@@ -1,19 +1,18 @@
 package com.kyxadious.perdidoemquixada.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.kyxadious.perdidoemquixada.R;
 
 public class LugaresDeQuixada {
 	
+	private ArrayList<Lugar> lugares;
+	private HashMap<String, Lugar> lugaresChaveValor;
 	
 	public LugaresDeQuixada() {
-		
-	}
-	
-	public ArrayList<Lugar> getLugaresDeQuixada(){
-		
-		ArrayList<Lugar> lugares = new ArrayList<Lugar>();
+		lugares = new ArrayList<Lugar>();
+		lugaresChaveValor = new HashMap<String, Lugar>();
 		
 		lugares.add(new Lugar("Raízes Bar & Restô", R.drawable.ic_raizes_bar, Tipo.RESTAURANTE, "Comida regional e música ao vivo", -4.969796,-39.014659, "Rua Rodrigues Júnior - Centro (Em frente ao Banco do Brasil)"));
 		lugares.add(new Lugar("Irashai Mase", R.drawable.ic_irashai, Tipo.RESTAURANTE, "Restaurante Asiático", -4.970529, -39.014952, "Rua José de Alencar, 547  - Centro"));
@@ -74,9 +73,18 @@ public class LugaresDeQuixada {
 		lugares.add(new Lugar("Faculdade de Educação, Ciências e Letras do Sertão Central", R.drawable.ic_uece, Tipo.FACULDADE, "UECE / FECLESC", -4.968406, -39.02457, "Rua José de Queiroz Pessoa, 2554 – Planalto Universitário"));
 		lugares.add(new Lugar("Instituto Federal do Ceará – Campus Quixadá", R.drawable.ic_ifce, Tipo.FACULDADE, "IFCE – Campus Quixadá", -4.978336, -39.058141, "Estrada do Açude Cedro, Km 05 – Cedro Novo"));
 		lugares.add(new Lugar("Faculdade Católica Rainha do Sertão", R.drawable.ic_fcrs, Tipo.FACULDADE, "FCRS", -4.975268, -39.016014, "Av. Plácido Castelo – Centro / Rua Juvêncio Alves, 660 – Centro"));
-		
-		
+	
+		for (int i = 0; i < lugares.size(); i++) {
+			lugaresChaveValor.put(lugares.get(i).getNome(), lugares.get(i));
+		}		
+	}
+	
+	public ArrayList<Lugar> getLugaresDeQuixada(){
 		return lugares;
+	}
+	
+	public Lugar getLugar(String nomeDoLugar){
+		return lugaresChaveValor.get(nomeDoLugar);
 	}
 
 }

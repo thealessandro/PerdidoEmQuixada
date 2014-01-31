@@ -82,7 +82,7 @@ public class MapActivity extends SherlockFragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// getMenuInflater().inflate(R.menu.map, menu);
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		//getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 	// Fim onCreateOptionsMenu

@@ -9,7 +9,6 @@
     <string name="drawer_close">Close the Drawer</string>
 
     <string-array name="itens_menu">
-        <item>Todos</item>
         <item>Banco</item>
         <item>Bar</item>
         <item>Detran</item>
@@ -28,7 +27,6 @@
     </string-array>
 
     <integer-array name="icons_menu">
-        <item>@drawable/ic_launcher</item>
         <item>@drawable/ic_banco</item>
         <item>@drawable/ic_bar</item>
         <item>@drawable/ic_detran</item>

@@ -16,7 +16,12 @@ import com.kyxadious.perdidoemquixada.model.Tipo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class ListViewActivity extends SherlockFragmentActivity {
 
@@ -36,6 +41,7 @@ public class ListViewActivity extends SherlockFragmentActivity {
 	
 	public static final String TITULO = "com.kyxadious.perdidoemquixada.titulolugarescolhido";
 	public static final String TIPO = "com.kyxadious.perdidoemquixada.tipolugarescolhido";
+	public static final String LUGAR = "com.kyxadious.perdidoemquixada.lugarescolhido";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,22 @@ public class ListViewActivity extends SherlockFragmentActivity {
 																  R.id.image_view_lugar,
 																  R.id.text_view_lugar);
 		listView.setAdapter(adapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
+				
+				TextView nome = (TextView) view.findViewById(R.id.text_view_lugar);
+				ImageView imagem = (ImageView) view.findViewById(R.id.image_view_lugar);
+				
+				Lugar lugarProcurado = lugaresDeQuixada.getLugar(nome.getText().toString());
+				Intent intent = new Intent(getApplicationContext(), LugarActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
+				intent.putExtra(LUGAR, lugarProcurado);
+				intent.putExtra(TITULO, getTitle().toString());
+				startActivity(intent);
+
+			}
+		});
 
 	}
 
@@ -88,7 +110,7 @@ public class ListViewActivity extends SherlockFragmentActivity {
 		menuItem = menu.add(0, R.id.action_mapa, 0, null);
 		menuItem.setIcon(R.drawable.ic_mapa).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 		
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		//getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
