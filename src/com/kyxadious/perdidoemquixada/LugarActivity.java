@@ -11,12 +11,17 @@ import com.kyxadious.perdidoemquixada.model.Lugar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 
 public class LugarActivity extends SherlockFragmentActivity {
 
 	private Intent intent;
+	private ImageView imageViewImagem;
 	private TextView textViewNome;
+	private TextView textViewDescricao;
+	private TextView textViewEndereco;
 	private MenuItem menuItem;
 	private Lugar novoLugar;
 
@@ -30,7 +35,10 @@ public class LugarActivity extends SherlockFragmentActivity {
 		setContentView(R.layout.activity_lugar);
 		
 		/* Componentes UI */
-		textViewNome = (TextView) findViewById(R.id.text_view_lugar_selecionado);
+		imageViewImagem = (ImageView) findViewById(R.id.image_view_imagem_lugar);
+		textViewNome = (TextView) findViewById(R.id.text_view_nome_lugar);
+		textViewDescricao = (TextView) findViewById(R.id.text_view__descricao_lugar);
+		textViewEndereco = (TextView) findViewById(R.id.text_view__endereco_lugar);
 		
 		/* Ativa o butão home do action bar */
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,10 +49,12 @@ public class LugarActivity extends SherlockFragmentActivity {
 		setTitle(intent.getStringExtra(TITULO).toString());
 		novoLugar = (Lugar) intent.getSerializableExtra(LUGAR);
 		
-		
 		/* Setting o novo lugar */
+		imageViewImagem.setScaleType(ScaleType.FIT_XY);
+		imageViewImagem.setImageResource(novoLugar.getIdImag());
 		textViewNome.setText(novoLugar.getNome());
-		
+		textViewDescricao.setText(novoLugar.getDescricao());
+		textViewEndereco.setText(novoLugar.getEndereco());
 		
 	}
 
@@ -53,7 +63,6 @@ public class LugarActivity extends SherlockFragmentActivity {
 		
 		menuItem = menu.add(0, R.id.action_settings, 0, null);
 		menuItem.setIcon(R.drawable.ic_gps).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-		
 		//getSupportMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -80,15 +89,7 @@ public class LugarActivity extends SherlockFragmentActivity {
 			}
 		}
 		// Fim onOptionsItemSelected
-
-		
-		public String getUriNavegadorGps(double lat, double lng){
-			String uri = "google.navigation:q=lat,lng";
-			uri.replace("lat", String.valueOf(lat));
-			uri.replace("lng", String.valueOf(lng));
-			return uri;
-		}
-		
+	
 }
 
 

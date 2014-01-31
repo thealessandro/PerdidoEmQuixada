@@ -63,6 +63,10 @@
             android:name="com.kyxadious.perdidoemquixada.LugarActivity"
             android:label="@string/title_activity_lugar" >
         </activity>
+        <activity
+            android:name="com.kyxadious.perdidoemquixada.SobreActivity"
+            android:label="@string/title_activity_sobre" >
+        </activity>
     </application>
 
 </manifest>

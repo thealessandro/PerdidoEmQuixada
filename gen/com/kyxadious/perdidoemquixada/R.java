@@ -1214,20 +1214,21 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040017;
         public static final int abs__title=0x7f04001f;
         public static final int abs__up=0x7f04000b;
-        public static final int action_mapa=0x7f040040;
-        public static final int action_settings=0x7f040041;
+        public static final int action_mapa=0x7f040043;
+        public static final int action_settings=0x7f040044;
         public static final int disableHome=0x7f040009;
-        public static final int drawer=0x7f040038;
-        public static final int drawer_list=0x7f04003a;
+        public static final int drawer=0x7f04003b;
+        public static final int drawer_list=0x7f04003d;
         public static final int edit_query=0x7f04002a;
         public static final int homeAsUp=0x7f040006;
         public static final int hybrid=0x7f040013;
-        public static final int image_view_lugar=0x7f04003e;
-        public static final int imge1=0x7f04003c;
+        public static final int image_view_imagem_lugar=0x7f040037;
+        public static final int image_view_lugar=0x7f040041;
+        public static final int imge1=0x7f04003f;
         public static final int listMode=0x7f040002;
         public static final int list_view=0x7f040036;
-        public static final int map=0x7f04003b;
-        public static final int map_main=0x7f040039;
+        public static final int map=0x7f04003e;
+        public static final int map_main=0x7f04003c;
         public static final int none=0x7f040010;
         public static final int normal=0x7f040001;
         public static final int satellite=0x7f040011;
@@ -1236,9 +1237,11 @@ containing a value of this type.
         public static final int showTitle=0x7f040007;
         public static final int tabMode=0x7f040003;
         public static final int terrain=0x7f040012;
-        public static final int text1=0x7f04003d;
-        public static final int text_view_lugar=0x7f04003f;
-        public static final int text_view_lugar_selecionado=0x7f040037;
+        public static final int text1=0x7f040040;
+        public static final int text_view__descricao_lugar=0x7f040039;
+        public static final int text_view__endereco_lugar=0x7f04003a;
+        public static final int text_view_lugar=0x7f040042;
+        public static final int text_view_nome_lugar=0x7f040038;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
     }
@@ -1273,10 +1276,11 @@ containing a value of this type.
         public static final int activity_main=0x7f030017;
         public static final int activity_map=0x7f030018;
         public static final int activity_restaurante=0x7f030019;
-        public static final int drawer_list_item=0x7f03001a;
-        public static final int lugares_list_item=0x7f03001b;
-        public static final int sherlock_spinner_dropdown_item=0x7f03001c;
-        public static final int sherlock_spinner_item=0x7f03001d;
+        public static final int activity_sobre=0x7f03001a;
+        public static final int drawer_list_item=0x7f03001b;
+        public static final int lugares_list_item=0x7f03001c;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001d;
+        public static final int sherlock_spinner_item=0x7f03001e;
     }
     public static final class menu {
         public static final int list_view=0x7f0c0000;
@@ -1284,6 +1288,7 @@ containing a value of this type.
         public static final int main=0x7f0c0002;
         public static final int map=0x7f0c0003;
         public static final int restaurante=0x7f0c0004;
+        public static final int sobre=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1425,6 +1430,7 @@ containing a value of this type.
         public static final int title_activity_list_view=0x7f09002e;
         public static final int title_activity_lugar=0x7f09002f;
         public static final int title_activity_map=0x7f09002d;
+        public static final int title_activity_sobre=0x7f090030;
     }
     public static final class style {
         /** 

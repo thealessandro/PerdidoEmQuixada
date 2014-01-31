@@ -254,7 +254,8 @@ public class MainActivity extends SherlockFragmentActivity {
 		}	
 		
 		mDrawerList.setItemChecked(position, true);
-		setTitle(nomeDosTipos[position]);
+		// Se está comentado é porque tem um motivo muito importante
+		//setTitle(nomeDosTipos[position]);
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
 	

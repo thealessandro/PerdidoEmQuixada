@@ -1,26 +1,51 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#111"
-    android:orientation="vertical"
-    tools:context=".LugarActivity" >
+    android:background="#111" >
 
-    <TextView
-        android:id="@+id/text_view_lugar_selecionado"
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fff"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:padding="3dp"
-        android:textStyle="bold" />
-    
-    <ImageView 
-        android:id="@+id/image_view_lugar_selecionado"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        />
-    
+        android:background="#111"
+        android:orientation="vertical"
+        tools:context=".LugarActivity" >
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/image_view_imagem_lugar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_view_nome_lugar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="3dp"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_view__descricao_lugar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="3dp"
+            android:textColor="#517fa4"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/text_view__endereco_lugar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="3dp"
+            android:textColor="#517fa4"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+</ScrollView>
