@@ -5,5 +5,8 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="/opt/programas/android/adt-bundle-linux-x86-20130917/sdk/extras/google/google_play_services_froyo/libproject/google-play-services_lib/libs/google-play-services.jar"/>
+	<classpathentry kind="lib" path="/opt/programas/android/adt-bundle-linux-x86-20130917/sdk/extras/google/google_play_services/libproject/google-play-services_lib/libs/google-play-services.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/programas/android/adt-bundle-linux-x86-20130917/sdk/extras/google/admob_ads_sdk/GoogleAdMobAdsSdk-6.4.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

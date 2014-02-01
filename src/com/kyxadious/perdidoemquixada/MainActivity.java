@@ -7,6 +7,7 @@ import java.util.List;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.android.gms.internal.ad;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -35,6 +36,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Advanceable;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -43,7 +45,6 @@ import android.widget.SimpleAdapter;
 
 
 public class MainActivity extends SherlockFragmentActivity {
-
 	
 	private Marker pontoNoMapa;
 	private GoogleMap googleMap;

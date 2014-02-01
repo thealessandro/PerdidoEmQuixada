@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:padding="3dp"
+            android:paddingLeft="3dp"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:padding="3dp"
+            android:paddingLeft="3dp"
             android:textColor="#517fa4"
             android:textSize="15sp"
             android:textStyle="normal" />
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:padding="3dp"
+            android:paddingLeft="3dp"
             android:textColor="#517fa4"
             android:textSize="15sp"
             android:textStyle="normal" />

@@ -6,6 +6,7 @@ import java.util.List;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.android.gms.maps.GoogleMap;
 import com.kyxadious.perdidoemquixada.model.CustomListViewAdapter;
 import com.kyxadious.perdidoemquixada.model.EscolherLugar;
 import com.kyxadious.perdidoemquixada.model.Lugar;
@@ -24,8 +25,6 @@ import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ListViewActivity extends SherlockFragmentActivity {
-
-	
 
 	private Intent intent;
 	private ListView listView;
