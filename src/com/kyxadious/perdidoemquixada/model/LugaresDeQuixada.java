@@ -41,7 +41,7 @@ public class LugaresDeQuixada {
 		lugares.add(new Lugar("Mercantil Cícero Bertoldo", R.drawable.ic_bertoldo, Tipo.SUPERMERCADO, "Supermercado", -4.970218, -39.016869, "Rua Tabelião Enéas, 473 – Centro"));
 		lugares.add(new Lugar("Panificadora Nossa Senhora do Perpétuo Socorro", R.drawable.ic_perpetuo_socorro, Tipo.PADARIA, "Padaria", -4.967394,-39.008906, "Rua Benjamim Constant, 1033 – Alto São Francisco"));
 		lugares.add(new Lugar("Meu Escritório", R.drawable.ic_meu_escritorio, Tipo.BAR, "Bar", -4.972644,-39.019565, "Av. José Caetano Almeida - Combate"));
-		lugares.add(new Lugar("Hotel Nobile Express Vale das Pedras", R.drawable.ic_vale_pedras, Tipo.HOTEL, "Hotel com 130 leitos. Tel: (88) 3412-6610(Recepção) e (88) 3412- 6611 (Reservas)", -4.955997,-39.006942, "Av. Jesus Maria e José, 2010 – Jardim dos Monólitos"));
+		lugares.add(new Lugar("Hotel Nobile Express Vale das Pedras", R.drawable.ic_vale_pedras, Tipo.HOTEL, "Hotel com 130 leitos. Tel: (88) 3412-6610 (Recepção) e (88) 3412- 6611 (Reservas)", -4.955997,-39.006942, "Av. Jesus Maria e José, 2010 – Jardim dos Monólitos"));
 		lugares.add(new Lugar("Panificadora Q-Pão", R.drawable.ic_q_pao, Tipo.PADARIA, "Padaria", -4.968599,-39.014962, "Rua Epitácio Pessoa, 1325 – Centro"));
 		lugares.add(new Lugar("Self-Service Saborear", R.drawable.ic_saborear, Tipo.RESTAURANTE, "Restaurante", -4.969775,-39.015756, "Rua Rodrigues Júnior, 1342 – Centro"));
 		lugares.add(new Lugar("Peixada O Abelardo", R.drawable.ic_abelardo, Tipo.RESTAURANTE, "Peixada, tilápia frita, camarão, baião de dois, etc.", -4.962918,-39.015474, "Av. Placido Castelo, 2585 – Triângulo"));

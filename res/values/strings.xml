@@ -8,7 +8,9 @@
     <string name="drawer_open">Open the Drawer</string>
     <string name="drawer_close">Close the Drawer</string>
     <string name="id_admob">ca-app-pub-5638464060914850/4729848522</string>
-
+    <string name="descricao_app">O Perdido em Quixadá exibe a localização dos restaurantes, bares, hotéis, sorveterias, padarias, e entre outros lugares.</string>
+	<string name="desenvolvido_por">Desenvolvido por: Alessandro Menezes.</string>
+    
     <string-array name="itens_menu">
         <item>Banco</item>
         <item>Bar</item>
@@ -48,6 +50,6 @@
     <string name="title_activity_map">MapaActivity</string>
     <string name="title_activity_list_view">ListViewActivity</string>
     <string name="title_activity_lugar">LugarActivity</string>
-    <string name="title_activity_sobre">Sobre</string>
+    <string name="title_activity_sobre">Sobre o Perdido em Quixadá</string>
 
 </resources>

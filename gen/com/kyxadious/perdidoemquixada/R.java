@@ -1402,14 +1402,16 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060012;
+        public static final int descricao_app=0x7f06002d;
+        public static final int desenvolvido_por=0x7f06002e;
         public static final int drawer_close=0x7f06002b;
         public static final int drawer_open=0x7f06002a;
         public static final int hello_world=0x7f060029;
         public static final int id_admob=0x7f06002c;
-        public static final int title_activity_list_view=0x7f06002e;
-        public static final int title_activity_lugar=0x7f06002f;
-        public static final int title_activity_map=0x7f06002d;
-        public static final int title_activity_sobre=0x7f060030;
+        public static final int title_activity_list_view=0x7f060030;
+        public static final int title_activity_lugar=0x7f060031;
+        public static final int title_activity_map=0x7f06002f;
+        public static final int title_activity_sobre=0x7f060032;
     }
     public static final class style {
         /** 
@@ -1475,6 +1477,7 @@ containing a value of this type.
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0a0040;
         public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0a0042;
         public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0a0044;
+        public static final int TextViewTheme=0x7f0a005b;
         public static final int Theme_Sherlock=0x7f0a0054;
         public static final int Theme_Sherlock_Light=0x7f0a0055;
         public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0a0056;
