@@ -3,7 +3,7 @@ Perdido em Quixadá
 
 Projeto Android para mostrar os principais lugares da cidade de Quixadá - CE - Brasil
 
-<h2>Links:</h2>
+<h2>Links</h2>
 
 <ul>
 
