@@ -14,10 +14,10 @@ public class LugaresDeQuixada {
 		lugares = new ArrayList<Lugar>();
 		lugaresChaveValor = new HashMap<String, Lugar>();
 		
-		lugares.add(new Lugar("Raízes Bar & Restô", R.drawable.ic_raizes_bar, Tipo.RESTAURANTE, "Comida regional e música ao vivo", -4.969796,-39.014659, "Rua Rodrigues Júnior - Centro (Em frente ao Banco do Brasil)"));
+		lugares.add(new Lugar("Raízes Bar & Restô", R.drawable.ic_raizes_bar, Tipo.RESTAURANTE, "Comida regional e música ao vivo", -4.969801,-39.014613, "Rua Rodrigues Júnior - Centro (Em frente ao Banco do Brasil)"));
 		lugares.add(new Lugar("Irashai Mase", R.drawable.ic_irashai, Tipo.RESTAURANTE, "Restaurante Asiático", -4.970529, -39.014952, "Rua José de Alencar, 547  - Centro"));
-		lugares.add(new Lugar("Mac Lanches", R.drawable.ic_mac_lanches, Tipo.LANCHONETE, "Lanchonete", -4.9697,-39.013342, "Rua Rodrigues Júnior – Centro (Em frente a Praça Coronel Nanan)"));
-		lugares.add(new Lugar("Nori – Sushis e Restô", R.drawable.ic_nori, Tipo.RESTAURANTE, "Restaurante Asiático", -4.969772,-39.013401, "Rua Rodrigues Júnior, 759 - Centro"));
+		lugares.add(new Lugar("Mac Lanches", R.drawable.ic_mac_lanches, Tipo.LANCHONETE, "Lanchonete", -4.9697,-39.013288, "Rua Rodrigues Júnior – Centro (Em frente a Praça Coronel Nanan)"));
+		lugares.add(new Lugar("Nori – Sushis e Restô", R.drawable.ic_nori, Tipo.RESTAURANTE, "Restaurante Asiático", -4.969783,-39.013353, "Rua Rodrigues Júnior, 759 - Centro"));
 		lugares.add(new Lugar("Sorveteria Mix", R.drawable.ic_sorveteria_mix, Tipo.SORVETERIA, "Sorveteria", -4.969769,-39.016126, "Rua Rodrigues Júnior – Centro (Esquina com a Praça José de Barros)"));
 		lugares.add(new Lugar("Q-doce", R.drawable.ic_q_doce, Tipo.LANCHONETE, "Lanchonete", -4.968622, -39.016185, "Rua Epitácio Pessoa, 1453 – Centro"));
 		lugares.add(new Lugar("Bom D+", R.drawable.ic_bom_demais, Tipo.RESTAURANTE, "Restaurante e Pizzaria", -4.968543,-39.015, "Rua Epitácio Pessoa, 1322 - Centro"));
@@ -33,12 +33,12 @@ public class LugaresDeQuixada {
 		lugares.add(new Lugar("Rede Açaí.com", R.drawable.ic_rede_acai, Tipo.LANCHONETE, "Lanchonete", -4.969788, -39.012025, "Rua Rodrigues Júnior – Bavieira"));
 		lugares.add(new Lugar("Sabores Do sertão", R.drawable.ic_sabores_sertao, Tipo.RESTAURANTE, "Restaurante", -4.968974, -39.015977, "Av. Plácido Castelo - Centro"));
 		lugares.add(new Lugar("Bookafé", R.drawable.ic_bookafe, Tipo.LANCHONETE, "Lanchonete", -4.968542, -39.021347, "Rua José Queirós Pessoa – Planalto Universitário"));
-		lugares.add(new Lugar("Pinheiro Supermercado", R.drawable.ic_pinheiro_super, Tipo.SUPERMERCADO, "Supermercado", -4.968316,-39.017392, "Rua Francisco Enéas de Lima, 2027 – Centro")); 
+		lugares.add(new Lugar("Pinheiro Supermercado - O Bom Vizinho", R.drawable.ic_pinheiro_super, Tipo.SUPERMERCADO, "Supermercado", -4.968543,-39.023781, "Rua Francisco Enéas de Lima, 2027 – Centro")); 
 		lugares.add(new Lugar("Lojas Americanas", R.drawable.ic_americanas, Tipo.LOJA_DE_DEPARTAMENTO, "Loja de departamento", -4.968527,-39.014308, "Rua Epitácio Pessoa, 1250  - Centro"));
 		lugares.add(new Lugar("Super São Geraldo Centro", R.drawable.ic_geraldo, Tipo.SUPERMERCADO, "Supermercado", -4.968893,-39.016917, "Rua Tabelião Enéas, 645 – Centro"));
 		lugares.add(new Lugar("Super São Geraldo Alto São Francisco", R.drawable.ic_geraldo, Tipo.SUPERMERCADO, "Supermercado", -4.968543,-39.010244, "Rua Epitácio Pessoa, 783 – Alto São Francisco"));
 		lugares.add(new Lugar("Super São Geraldo Campo Novo", R.drawable.ic_geraldo, Tipo.SUPERMERCADO, "Supermercado", -4.982256,-39.018682, "Av. Presidente Vargas, 740 – Campo Novo"));
-		lugares.add(new Lugar("Mercantil Cícero Bertoldo", R.drawable.ic_bertoldo, Tipo.SUPERMERCADO, "Supermercado", -4.970218, -39.016869, "Rua Tabelião Enéas, 473 – Centro"));
+		lugares.add(new Lugar("Mercantil Cícero Bertoldo", R.drawable.ic_bertoldo, Tipo.SUPERMERCADO, "Supermercado", -4.970207,-39.016899, "Rua Tabelião Enéas, 473 – Centro"));
 		lugares.add(new Lugar("Panificadora Nossa Senhora do Perpétuo Socorro", R.drawable.ic_perpetuo_socorro, Tipo.PADARIA, "Padaria", -4.967394,-39.008906, "Rua Benjamim Constant, 1033 – Alto São Francisco"));
 		lugares.add(new Lugar("Meu Escritório", R.drawable.ic_meu_escritorio, Tipo.BAR, "Bar", -4.972644,-39.019565, "Av. José Caetano Almeida - Combate"));
 		lugares.add(new Lugar("Hotel Nobile Express Vale das Pedras", R.drawable.ic_vale_pedras, Tipo.HOTEL, "Hotel com 130 leitos. Tel: (88) 3412-6610 (Recepção) e (88) 3412- 6611 (Reservas)", -4.955997,-39.006942, "Av. Jesus Maria e José, 2010 – Jardim dos Monólitos"));
@@ -50,7 +50,7 @@ public class LugaresDeQuixada {
 		lugares.add(new Lugar("Panificadora e Confeitaria Sete de Setembro", R.drawable.ic_sete_setembeo, Tipo.PADARIA, "Padaria", -4.965742, -39.010268, "Rua Benigno Bezerra, 94 – Campo Velho"));
 		lugares.add(new Lugar("Panificadora Uberlândia", R.drawable.ic_uberlandia, Tipo.PADARIA, "Padaria", -4.968639,-39.020791, "Rua José de Queirós Pessoa – Planalto Universitário"));
 		lugares.add(new Lugar("O Rei do Lanche", R.drawable.ic_rei_lanche, Tipo.RESTAURANTE, "Restaurante bom e barato (feito para universitários)", -4.97343,-39.016816, "Rua Sebastião Enéas – Centro (atrás da rodoviária)"));
-		lugares.add(new Lugar("Mr. Mix Milk Shakes", R.drawable.ic_mr_mix, Tipo.SORVETERIA, "Sorveteria", -4.969785,-39.016293, "Av. Plácido Castelo – Centro (próximo da Sorveteria Mix)")); 
+		lugares.add(new Lugar("Mr. Mix Milk Shakes", R.drawable.ic_mr_mix, Tipo.SORVETERIA, "Sorveteria", -4.969793,-39.016301, "Av. Plácido Castelo – Centro (próximo da Sorveteria Mix)")); 
 		lugares.add(new Lugar("Hotel Nova Aldeota", R.drawable.ic_hotel_nova_aldeota, Tipo.HOTEL, "Hotel com 45 leitos. Tel: (88) 3412-2147", -4.953864, -39.004878, "Av. Jesus Maria e José - Jardim dos Monólitos"));
 		lugares.add(new Lugar("Hotel Monólitos", R.drawable.ic_hotel_monolitos, Tipo.HOTEL, "Hotel com 50 leitos. Tel: (88) 3412-8080", -4.97234,-39.016504, "Av. Plácido Castelo – Centro"));
 		lugares.add(new Lugar("Hotel Belas Artes", R.drawable.ic_hotel_belas_artes, Tipo.HOTEL, "Hotel com 80 leitos. Tel: (88) 3412-0188", -4.995656,-39.032021, "Estrada do Algodão, km 96"));
