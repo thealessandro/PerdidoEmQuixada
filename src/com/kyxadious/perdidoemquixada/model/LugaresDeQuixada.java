@@ -1,6 +1,7 @@
 package com.kyxadious.perdidoemquixada.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import com.kyxadious.perdidoemquixada.R;
@@ -31,9 +32,9 @@ public class LugaresDeQuixada {
 		lugares.add(new Lugar("Guloseimas", R.drawable.ic_guloseimas, Tipo.LANCHONETE, "Lanchonete", -4.972459, -39.021846, "Av. José Caetano Almeida – Combate"));
 		lugares.add(new Lugar("Dona Rita", R.drawable.ic_dona_rita, Tipo.LANCHONETE, "Lanchonete",-4.969203, -39.024086, "Rua Jacinto Gomes - Planalto Universitário"));
 		lugares.add(new Lugar("Rede Açaí.com", R.drawable.ic_rede_acai, Tipo.LANCHONETE, "Lanchonete", -4.969788, -39.012025, "Rua Rodrigues Júnior – Bavieira"));
-		lugares.add(new Lugar("Sabores Do sertão", R.drawable.ic_sabores_sertao, Tipo.RESTAURANTE, "Restaurante", -4.968974, -39.015977, "Av. Plácido Castelo - Centro"));
+		lugares.add(new Lugar("Sabores do Sertão", R.drawable.ic_sabores_sertao, Tipo.RESTAURANTE, "Restaurante", -4.968974, -39.015977, "Av. Plácido Castelo - Centro"));
 		lugares.add(new Lugar("Bookafé", R.drawable.ic_bookafe, Tipo.LANCHONETE, "Lanchonete", -4.968542, -39.021347, "Rua José Queirós Pessoa – Planalto Universitário"));
-		lugares.add(new Lugar("Pinheiro Supermercado - O Bom Vizinho", R.drawable.ic_pinheiro_super, Tipo.SUPERMERCADO, "Supermercado", -4.968543,-39.023781, "Rua Francisco Enéas de Lima, 2027 – Centro")); 
+		lugares.add(new Lugar("Pinheiro Supermercado - O Bom Vizinho", R.drawable.ic_pinheiro_super, Tipo.SUPERMERCADO, "Supermercado", -4.968543,-39.023781, "Rua José de Queiroz Pessoa, 2500 - Planalto Universitário")); 
 		lugares.add(new Lugar("Lojas Americanas", R.drawable.ic_americanas, Tipo.LOJA_DE_DEPARTAMENTO, "Loja de departamento", -4.968527,-39.014308, "Rua Epitácio Pessoa, 1250  - Centro"));
 		lugares.add(new Lugar("Super São Geraldo Centro", R.drawable.ic_geraldo, Tipo.SUPERMERCADO, "Supermercado", -4.968893,-39.016917, "Rua Tabelião Enéas, 645 – Centro"));
 		lugares.add(new Lugar("Super São Geraldo Alto São Francisco", R.drawable.ic_geraldo, Tipo.SUPERMERCADO, "Supermercado", -4.968543,-39.010244, "Rua Epitácio Pessoa, 783 – Alto São Francisco"));
@@ -80,6 +81,7 @@ public class LugaresDeQuixada {
 	}
 	
 	public ArrayList<Lugar> getLugaresDeQuixada(){
+		Collections.sort(lugares, new ComparadorDeLugar());
 		return lugares;
 	}
 	

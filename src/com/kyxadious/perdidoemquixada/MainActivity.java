@@ -10,6 +10,9 @@ import com.actionbarsherlock.view.MenuItem;
 import com.google.android.gms.internal.ad;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -46,9 +49,9 @@ import android.widget.SimpleAdapter;
 
 public class MainActivity extends SherlockFragmentActivity {
 	
-	private Marker pontoNoMapa;
-	private GoogleMap googleMap;
 	private LatLng quixada; 
+	private GoogleMap googleMap;
+	private Marker pontoNoMapa, ultimoPontoNoMapa;
 	
 	private MenuItem menuItem;
 	private DrawerLayout mDrawerLayout;
@@ -68,6 +71,7 @@ public class MainActivity extends SherlockFragmentActivity {
 	
 	public static final String TITULO = "com.kyxadious.perdidoemquixada.titulolugarescolhido";
 	public static final String TIPO = "com.kyxadious.perdidoemquixada.tipolugarescolhido";
+	public static final String LUGAR = "com.kyxadious.perdidoemquixada.lugarescolhido";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,11 @@ public class MainActivity extends SherlockFragmentActivity {
 		iconeDosTipos = getResources().obtainTypedArray(R.array.icons_menu);
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer);
 		mDrawerList = (ListView)findViewById(R.id.drawer_list);
+		
+		/* Trazendo os lugares */
+		escolherIcone = new EscolherIcone();
+		lugaresDeQuixada = new LugaresDeQuixada();
+		lugares = lugaresDeQuixada.getLugaresDeQuixada();
 		
 		/* Logging */
 		Log.d("ICON",String.valueOf(iconeDosTipos.getResourceId(0, 0)));
@@ -283,24 +292,48 @@ public class MainActivity extends SherlockFragmentActivity {
 		googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map_main))).getMap();
 		googleMap.setMyLocationEnabled(true);
 		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quixada, 11));
-
-		/* Trazendo os lugares */
-		escolherIcone = new EscolherIcone();
-		lugaresDeQuixada = new LugaresDeQuixada();
-		lugares = lugaresDeQuixada.getLugaresDeQuixada();		
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(quixada, 12));		
 
 		for (int i = 0; i < lugares.size(); i++) {
-			
 			tipoDoLugar = lugares.get(i).getTipo();
 			pontoNoMapa = googleMap.addMarker(new MarkerOptions()
 					.position(lugares.get(i).getLocalizacao())
 					.title(lugares.get(i).getNome())
+					.snippet(lugares.get(i).getDescricao())
 					.icon(BitmapDescriptorFactory
 					.fromResource( escolherIcone.getIcone(tipoDoLugar) )));
 		}
 
+		// Tela LugarActivity é startada quando um marker é clicado
+		ultimoPontoNoMapa = null;
+		googleMap.setOnMarkerClickListener(new OnMarkerClickListener() {
+			
+			@Override
+			public boolean onMarkerClick(Marker marker) {
+				
+				if (ultimoPontoNoMapa != null) {
+					ultimoPontoNoMapa.hideInfoWindow();
+					
+					if (ultimoPontoNoMapa.equals(marker)) {
+						ultimoPontoNoMapa = null;
+						Lugar lugarProcurado = lugaresDeQuixada.getLugar(marker.getTitle().toString());
+						Intent intent = new Intent(getApplicationContext(), LugarActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
+						intent.putExtra(LUGAR, lugarProcurado);
+						intent.putExtra(TITULO, getTitle().toString());
+						startActivity(intent);
+					}
+				}
+				
+				ultimoPontoNoMapa = marker;
+				ultimoPontoNoMapa.showInfoWindow();
+				
+				return true;
+			}
+		});
+	
 		Log.d("QUANTIDADE_DE_LUGARES",String.valueOf(lugares.size()));
+		
 	}
 
 

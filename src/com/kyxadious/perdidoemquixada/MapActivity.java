@@ -13,6 +13,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -26,8 +27,8 @@ import com.kyxadious.perdidoemquixada.model.Tipo;
 public class MapActivity extends SherlockFragmentActivity {
 
 	private Intent intent;
-	private Marker marcador;
 	private GoogleMap googleMap;
+	private Marker marcador, ultimoPontoNoMapa;
 	private LatLng quixada = new LatLng(-4.970261, -39.015738);
 	
 	private Tipo tipoDoLugar;
@@ -38,7 +39,9 @@ public class MapActivity extends SherlockFragmentActivity {
 
 	public static final String TITULO = "com.kyxadious.perdidoemquixada.titulolugarescolhido";
 	public static final String TIPO = "com.kyxadious.perdidoemquixada.tipolugarescolhido";
-
+	public static final String LUGAR = "com.kyxadious.perdidoemquixada.lugarescolhido";
+	
+	
 	// Início onCreate
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +73,40 @@ public class MapActivity extends SherlockFragmentActivity {
 			marcador = googleMap.addMarker(new MarkerOptions()
 					.position(lugares.get(i).getLocalizacao())
 					.title(lugares.get(i).getNome())
+					.snippet(lugares.get(i).getDescricao())
 					.icon(BitmapDescriptorFactory
-					.fromResource(escolherIcone.getIcone(tipoDoLugar))));
+					.fromResource(escolherIcone.getIcone(tipoDoLugar))));			
 		}
+		
+		// Tela LugarActivity é startada quando um marker é clicado
+		ultimoPontoNoMapa = null;
+		googleMap.setOnMarkerClickListener(new OnMarkerClickListener() {
+			
+			@Override
+			public boolean onMarkerClick(Marker marker) {
+				
+				if (ultimoPontoNoMapa != null) {
+					ultimoPontoNoMapa.hideInfoWindow();
+					
+					if (ultimoPontoNoMapa.equals(marker)) {
+						ultimoPontoNoMapa = null;
+						Lugar lugarProcurado = lugaresDeQuixada.getLugar(marker.getTitle().toString());
+						Intent intent = new Intent(getApplicationContext(), LugarActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
+						intent.putExtra(LUGAR, lugarProcurado);
+						intent.putExtra(TITULO, getTitle().toString());
+						startActivity(intent);
+					}
+				}
+				
+				ultimoPontoNoMapa = marker;
+				ultimoPontoNoMapa.showInfoWindow();
+				
+				return true;
+			}
+		});
 
+		
 		Log.d("QUANTIDADE-LUGARES-ESCOLHIDOS", String.valueOf(lugares.size()));
 	}
 	// Fim onCreate

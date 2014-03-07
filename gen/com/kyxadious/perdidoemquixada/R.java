@@ -1309,8 +1309,8 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f060020;
-        public static final int action_mapa=0x7f060028;
-        public static final int action_settings=0x7f060027;
+        public static final int action_mapa=0x7f060029;
+        public static final int action_settings=0x7f060028;
         public static final int app_name=0x7f060026;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -1402,16 +1402,17 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f060012;
-        public static final int descricao_app=0x7f06002d;
-        public static final int desenvolvido_por=0x7f06002e;
-        public static final int drawer_close=0x7f06002b;
-        public static final int drawer_open=0x7f06002a;
-        public static final int hello_world=0x7f060029;
-        public static final int id_admob=0x7f06002c;
-        public static final int title_activity_list_view=0x7f060030;
-        public static final int title_activity_lugar=0x7f060031;
-        public static final int title_activity_map=0x7f06002f;
-        public static final int title_activity_sobre=0x7f060032;
+        public static final int descricao_app=0x7f06002e;
+        public static final int desenvolvido_por=0x7f06002f;
+        public static final int drawer_close=0x7f06002c;
+        public static final int drawer_open=0x7f06002b;
+        public static final int hello_world=0x7f06002a;
+        public static final int id_admob=0x7f06002d;
+        public static final int title_activity_list_view=0x7f060031;
+        public static final int title_activity_lugar=0x7f060032;
+        public static final int title_activity_map=0x7f060030;
+        public static final int title_activity_sobre=0x7f060033;
+        public static final int version_code=0x7f060027;
     }
     public static final class style {
         /** 

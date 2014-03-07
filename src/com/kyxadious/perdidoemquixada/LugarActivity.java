@@ -73,20 +73,16 @@ public class LugarActivity extends SherlockFragmentActivity {
 	// Início ativarGPS
 	private void ativarGPS() {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder
-				.setMessage("O GPS do seu dispositivo está desabilitado. É fortemente recomendado que você habilite seu GPS.");
-		alertDialogBuilder.setPositiveButton("Ativar GPS",
-				new OnClickListener() {
+		alertDialogBuilder.setMessage("O GPS do seu dispositivo está desabilitado. É fortemente recomendado que você habilite seu GPS.");
+		alertDialogBuilder.setPositiveButton("Ativar GPS", new OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						Intent gpsIntent = new Intent(
-								android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+						Intent gpsIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 						startActivity(gpsIntent);
 					}
 				});
-		// alertDialogBuilder.setNegativeButton("Cancelar", null);
+		alertDialogBuilder.setNegativeButton("Cancelar", null);
 		alertDialogBuilder.show();
 	}
 	// Fim ativarGPS
@@ -120,10 +116,7 @@ public class LugarActivity extends SherlockFragmentActivity {
 				startActivity(intent);
 			} catch (Exception e) {
 				Log.d("SEM GOOGLE MAPS", e.toString());
-				Toast.makeText(
-						getApplicationContext(),
-						"Oops! Você não tem instalado o Google Mapas em seu dispositivo.",
-						Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "Oops! Você não tem instalado o Google Mapas em seu dispositivo.", Toast.LENGTH_LONG).show();
 			}
 			return true;
 		default:
