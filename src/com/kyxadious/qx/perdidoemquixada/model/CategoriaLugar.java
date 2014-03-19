@@ -1,0 +1,20 @@
+package com.kyxadious.qx.perdidoemquixada.model;
+
+public enum CategoriaLugar {
+	RESTAURANTE,
+	LANCHONETE,
+	SORVETERIA,
+	PIZZARIA,
+	BAR, 
+	SUPERMERCADO, 
+	LOJA_DE_DEPARTAMENTO,
+	PADARIA,
+	HOTEL,
+	BANCO,
+	FARMACIA,
+	POLICIA,
+	DETRAN,
+	HOSPITAL,
+	FACULDADE,
+	CINEMA
+}

@@ -38,17 +38,17 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_margin="20dp"
         android:src="@drawable/ic_launcher" />
     
      <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:textStyle="normal"
         android:text="@string/descricao_app"
-        android:textSize="18dp"
-        android:paddingTop="0dp"
+        android:textSize="17dp"
         style="@style/TextViewTheme" />
     
      <TextView
@@ -57,9 +57,18 @@
         android:gravity="center"
         android:textStyle="normal"
         android:text="@string/desenvolvido_por"
-        android:textSize="18dp"
-        android:paddingTop="8dp"
+        android:textSize="15dp"
         style="@style/TextViewTheme" />
+     
+     <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="normal"
+        android:text="@string/email_contato"
+        android:textSize="15dp"
+        style="@style/TextViewTheme" />
+     
        
       </LinearLayout>
      

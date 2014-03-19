@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="5dp" >
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"  >
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="5dp"
-        android:padding="3dp" >
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center|center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
 
         <!-- imagem do lugar -->
         <ImageView
             android:id="@+id/image_view_lugar"
+            android:layout_gravity="center"
             android:layout_width="70dp"
             android:layout_height="70dp" />
     </LinearLayout>
 
     <!-- nome do lugar -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp" >
+        
     <TextView
         android:id="@+id/text_view_lugar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="left|center"
+        android:gravity="left|center"
         android:textSize="17dp"
         android:textStyle="bold"
-        android:minHeight="60dp"
-        android:gravity="center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         style="@style/TextViewTheme" />
+    </LinearLayout>
 
 </LinearLayout>
       
