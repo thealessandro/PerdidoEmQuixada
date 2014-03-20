@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Perdido em Quixadá</string>
-    <string name="version_code">Versão 1.0.5</string>
+    <string name="version_code">Versão 1.0.6</string>
     <string name="action_settings">Settings</string>
     <string name="action_mapa">Mapa</string>
     <string name="action_gps">GPS</string>
@@ -13,9 +13,9 @@
     <string name="descricao_app">O Perdido em Quixadá exibe a localização dos restaurantes, bares, hotéis, sorveterias, padarias, e entre outros lugares de Quixadá.</string>
 	<string name="desenvolvido_por">Desenvolvido por: Alessandro Menezes</string>
 	<string name="email_contato">E-mail: alessandromenezes22@gmail.com</string>
-    <string name="title_activity_map">MapaActivity</string>
-    <string name="title_activity_list_view">ListViewActivity</string>
-    <string name="title_activity_lugar">LugarActivity</string>
+    <string name="title_activity_map"></string>
+    <string name="title_activity_list_view"></string>
+    <string name="title_activity_lugar"></string>
     <string name="title_activity_sobre">Sobre o Perdido em Quixadá</string>
 
 </resources>

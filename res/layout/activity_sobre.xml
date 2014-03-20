@@ -23,6 +23,7 @@
         android:paddingTop="0dp"
         android:textColor="#FFF" />
     
+    <!-- Versão do código -->
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

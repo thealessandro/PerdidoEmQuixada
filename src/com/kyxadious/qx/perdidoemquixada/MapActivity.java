@@ -164,5 +164,13 @@ public class MapActivity extends SherlockFragmentActivity {
 		this.localizacao = localizacao;
 	}
 	
-	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		seletorIconeMenu = null;
+		lugaresDeQuixada = null;
+		lugares = null;
+		marcador = null;
+		super.onDestroy();
+	}
 }

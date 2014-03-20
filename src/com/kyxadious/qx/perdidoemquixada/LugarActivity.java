@@ -16,10 +16,12 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ImageView.ScaleType;
@@ -63,26 +65,27 @@ public class LugarActivity extends SherlockFragmentActivity {
 		novoLugar = (Lugar) intent.getSerializableExtra(LUGAR);
 		setTitle(nomeDoTipoDoLugar.getNomeTipoDoLugar(novoLugar.getTipo()));
 
-		/* Setting o novo lugar */
-		
+		/* Getting o width da tela */	
+		Display display = getWindowManager().getDefaultDisplay(); 
+		int width = display.getWidth();  // deprecated
 		Bitmap myBitmap = null;	
+		/* Setting a imagem no imageView */
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeResource(getResources(), novoLugar.getIdImag(), options);
-		Bitmap.createBitmap(options.outHeight, options.outHeight, Bitmap.Config.ARGB_8888);
-		options.inJustDecodeBounds = false;
-		options.inSampleSize = 1; // 1/8th of actual image.
-		myBitmap = BitmapFactory.decodeResource(getResources(), novoLugar.getIdImag(), options);		
+		myBitmap = BitmapFactory.decodeResource(getResources(), novoLugar.getIdImag(), options);
+		myBitmap = Bitmap.createScaledBitmap(myBitmap, width, width, false);
 		imageViewImagem.setImageBitmap(myBitmap);
-		imageViewImagem.setScaleType(ScaleType.FIT_XY);
 		
-		textViewNome.setText(novoLugar.getNome());
-		textViewDescricao.setText(novoLugar.getDescricao());
-		textViewEndereco.setText(novoLugar.getEndereco());
-
+		/* Reciclando o myBitmap */ 
 		if (myBitmap.isRecycled()) {
 			myBitmap.recycle();
 		}
+	
+		/* Setting o nome do lugar */
+		textViewNome.setText(novoLugar.getNome());
+		/* Setting a descrição do lugar */
+		textViewDescricao.setText(novoLugar.getDescricao());
+		/* Setting o endereço do lugar */
+		textViewEndereco.setText(novoLugar.getEndereco());
 		
 		/* Ativar GPS do dispositivo */
 		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -96,7 +99,7 @@ public class LugarActivity extends SherlockFragmentActivity {
 	// Início ativarGPS
 	private void ativarGPS() {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		alertDialogBuilder.setMessage("O GPS do seu dispositivo está desabilitado. É fortemente recomendado que você habilite seu GPS.");
+		alertDialogBuilder.setMessage("O GPS do seu dispositivo está desabilitado. É fortemente recomendado que você habilite seu GPS para poder traçar rotas até o lugar desejado.");
 		alertDialogBuilder.setPositiveButton("Ativar GPS", new OnClickListener() {
 
 					@Override
@@ -157,4 +160,10 @@ public class LugarActivity extends SherlockFragmentActivity {
 	}
 	// Fim onOptionsItemSelected
 
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		nomeDoTipoDoLugar = null;
+		super.onDestroy();
+	}
 }

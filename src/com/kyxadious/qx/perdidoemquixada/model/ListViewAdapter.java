@@ -1,12 +1,6 @@
 package com.kyxadious.qx.perdidoemquixada.model;
 
-import java.io.File;
-import java.text.BreakIterator;
 import java.util.List;
-import java.util.Formatter.BigDecimalLayoutForm;
-
-import com.google.android.gms.internal.bm;
-import com.kyxadious.qx.perdidoemquixada.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -42,41 +36,41 @@ public class ListViewAdapter extends ArrayAdapter<ItemListView> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		
-		System.gc();
-		
-		View v = convertView;
+			
+		View view = convertView;
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 		ViewHolder holder;
 		ItemListView rowItem = getItem(position);
 
-		if (v == null) {
-			v = inflater.inflate(idListItem, null);
+		if (view == null) {
+			view = inflater.inflate(idListItem, null);
 			holder = new ViewHolder();
-			holder.imageView = (ImageView) v.findViewById(idImageView);
-			holder.textView = (TextView) v.findViewById(idTextView);
-			v.setTag(holder);
+			holder.imageView = (ImageView) view.findViewById(idImageView);
+			holder.textView = (TextView) view.findViewById(idTextView);
+			view.setTag(holder);
 		} else {
-			holder = (ViewHolder) v.getTag();
+			holder = (ViewHolder) view.getTag();
 		}
 
-		holder.textView.setText(rowItem.getTexto().toString());
-		Bitmap myBitmap = null;	
+		// Setando o texto no item 
+		holder.textView.setText(rowItem.getTexto().toString()); // Setando o texto no textView
 		
+		// Setando a imagem no item na escala de 100x100
+		Bitmap myBitmap;	
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
 		BitmapFactory.decodeResource(context.getResources(), rowItem.getImagem(), options);
 		Bitmap.createBitmap(options.outHeight, options.outHeight, Bitmap.Config.ARGB_8888);
 		options.inJustDecodeBounds = false;
-		//options.inBitmap = bitmap;
-		options.inSampleSize = 7; // 1/8th of actual image.
+		options.inSampleSize = 6; // 1/8th of actual image.
 		myBitmap = BitmapFactory.decodeResource(context.getResources(), rowItem.getImagem(), options);
-		holder.imageView.setImageBitmap(myBitmap);
+		myBitmap = Bitmap.createScaledBitmap(myBitmap, 100, 100, false); // resize bitmap
+		holder.imageView.setImageBitmap(myBitmap); // Setando o bitmap no imageView
 		
 		if (myBitmap.isRecycled()) {
-			myBitmap.recycle();
+			myBitmap.recycle(); // Reciclando o myBitmap
 		}
 		
-		return v;
+		return view;
 	}
 }
