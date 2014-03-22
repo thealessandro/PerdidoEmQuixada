@@ -79,7 +79,6 @@ public class MainActivity extends SherlockFragmentActivity {
 		setContentView(R.layout.activity_main);
 		
 		
-		
 		mTitle = mDrawerTitle = getTitle();
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer);
 		mDrawerList = (ListView)findViewById(R.id.drawer_list);

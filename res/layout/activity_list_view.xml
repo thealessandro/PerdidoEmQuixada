@@ -18,13 +18,14 @@
         android:divider="#fff"
         android:dividerHeight="0.1dp" />
 
-    <com.google.android.gms.ads.AdView
+    
+    <!-- <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         ads:adSize="BANNER"
         ads:adUnitId="ca-app-pub-5638464060914850/4729848522"
-        />
+        /> -->
         
 </LinearLayout>

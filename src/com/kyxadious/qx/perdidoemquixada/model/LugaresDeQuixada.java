@@ -23,7 +23,7 @@ public class LugaresDeQuixada {
 		lugares.add(new Lugar("Q-doce", R.drawable.ic_q_doce, CategoriaLugar.LANCHONETE, "Lanchonete", -4.968622, -39.016185, "Rua Epitácio Pessoa, 1453 – Centro"));
 		lugares.add(new Lugar("Bom D+", R.drawable.ic_bom_demais, CategoriaLugar.RESTAURANTE, "Restaurante e Pizzaria", -4.968543,-39.015, "Rua Epitácio Pessoa, 1322 - Centro"));
 		lugares.add(new Lugar("Pastelaria O Marivaldo", R.drawable.ic_marivaldo, CategoriaLugar.LANCHONETE, "Lanchonete e pastelaria", -4.971425, -39.018460, "Rua Rui Maia, 367 - Centro"));  
-		lugares.add(new Lugar("Pizzaria Forno A Lenha", R.drawable.ic_forno_lenha, CategoriaLugar.PIZZARIA, "Pizzaria", -4.969307, -39.013366, "Rua Clarindo de José - Centro"));
+		lugares.add(new Lugar("Pizzaria Forno a Lenha", R.drawable.ic_forno_lenha, CategoriaLugar.PIZZARIA, "Pizzaria", -4.969307, -39.013366, "Rua Clarindo de José - Centro"));
 		lugares.add(new Lugar("Restaurante Pé de Serra", R.drawable.ic_pe_serra, CategoriaLugar.RESTAURANTE, "Restaurante e churrascaria", -5.045373, -39.048716, "Estrada do Algodão km 105"));
 		lugares.add(new Lugar("Abrigo Bar", R.drawable.ic_abrigo_bar, CategoriaLugar.BAR, "Bar", -4.96928, -39.013444, "Rua Clarindo de José - Centro"));
 		lugares.add(new Lugar("Bar do Duarte", R.drawable.ic_duarte, CategoriaLugar.BAR, "Bar", -4.971733, -39.014509, "Rua José Jucá -  Centro (Em frente a Praça da Cultura)"));

@@ -6,8 +6,8 @@ import java.util.List;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.AdView;
 import com.google.android.gms.maps.GoogleMap;
 import com.kyxadious.qx.perdidoemquixada.R;
 import com.kyxadious.qx.perdidoemquixada.model.ListViewAdapter;
@@ -53,11 +53,12 @@ public class ListViewActivity extends SherlockFragmentActivity {
 		setContentView(R.layout.activity_list_view);
 
 		
-		
+		/*
 		// Look up the AdView as a resource and load a request.
 	    AdView adView = (AdView)this.findViewById(R.id.adView);
 	    AdRequest adRequest = new AdRequest.Builder().build();
 	    adView.loadAd(adRequest);
+	    */
 	    
 		
 		listView = (ListView) findViewById(R.id.list_view);
