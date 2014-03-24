@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -55,10 +56,6 @@ public class MapActivity extends SherlockFragmentActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setHomeButtonEnabled(true);
 		
-		/* Configuração padrão no mapa */
-		zoom = 14;
-		localizacao = new LatLng(-4.968679,-39.017086);
-		
 		/* Trazendo os lugares */
 		seletorIconeMenu = new SeletorIconeMenu();
 		lugaresDeQuixada = new LugaresDeQuixada();
@@ -76,61 +73,18 @@ public class MapActivity extends SherlockFragmentActivity {
 			lugares = new ArrayList<Lugar>();
 			lugares.add(lugar);		
 		} else { // Senão for null, é para exibir um conjunto de lugares
+			zoom = 14;
+			localizacao = new LatLng(-4.968679,-39.017086);
 			escolherLugares = new EscolherLugares(lugaresDeQuixada.getLugaresDeQuixada());
 			lugares = escolherLugares.getLugares(tipoDoLugar);
 		}
 
-		googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map))).getMap();
-		googleMap.setMyLocationEnabled(true);
-		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(localizacao, zoom));
-
-
-		for (int i = 0; i < lugares.size(); i++) {
-			marcador = googleMap.addMarker(new MarkerOptions()
-					.position(lugares.get(i).getLocalizacao())
-					.title(lugares.get(i).getNome())
-					.snippet(lugares.get(i).getDescricao())
-					.icon(BitmapDescriptorFactory
-					.fromResource(seletorIconeMenu.getIcone(tipoDoLugar))));			
-		}
-		
-		
-		
-		
-		// Tela LugarActivity é startada quando um marker é clicado
-		ultimoPontoNoMapa = null;
-		googleMap.setOnMarkerClickListener(new OnMarkerClickListener() {
-			
-			@Override
-			public boolean onMarkerClick(Marker marker) {
-				
-				if (ultimoPontoNoMapa != null) {
-					ultimoPontoNoMapa.hideInfoWindow();
-					
-					if (ultimoPontoNoMapa.equals(marker)) {
-						ultimoPontoNoMapa = null;
-						Lugar lugarProcurado = lugaresDeQuixada.getLugar(marker.getTitle().toString());
-						Intent intent = new Intent(getApplicationContext(), LugarActivity.class);
-						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
-						intent.putExtra(LUGAR, lugarProcurado);
-						intent.putExtra(TITULO, getTitle().toString());
-						startActivity(intent);
-					}
-				}
-				
-				ultimoPontoNoMapa = marker;
-				ultimoPontoNoMapa.showInfoWindow();
-				
-				return true;
-			}
-		});
-
-		
-		Log.d("QUANTIDADE-LUGARES-ESCOLHIDOS", String.valueOf(lugares.size()));
+		/* Configurando o mapa para exibição */
+		configurarMapa();
 	}
 	// Fim onCreate
 
+	
 	// Início onCreateOptionsMenu
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -162,7 +116,70 @@ public class MapActivity extends SherlockFragmentActivity {
 	
 	public void setLocatizacao(LatLng localizacao){
 		this.localizacao = localizacao;
+	}	
+
+	public void configurarMapa(){
+		// Checar se já existe o mapa está instanciado 
+		if (googleMap == null) {
+			googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map))).getMap();
+			
+			if (googleMap != null) {
+				googleMap.setMyLocationEnabled(true);
+				googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+				googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(localizacao, zoom));
+				exibirMapa();
+			} else { 
+				Toast.makeText(getApplicationContext(), "Não foi possível exibir o mapa!", Toast.LENGTH_LONG).show();
+			}
+			
+		}
 	}
+	
+	
+	public void exibirMapa(){
+
+		for (int i = 0; i < lugares.size(); i++) {
+			marcador = googleMap.addMarker(new MarkerOptions()
+					.position(lugares.get(i).getLocalizacao())
+					.title(lugares.get(i).getNome())
+					.snippet(lugares.get(i).getDescricao())
+					.icon(BitmapDescriptorFactory
+					.fromResource(seletorIconeMenu.getIcone(tipoDoLugar))));			
+		}
+		
+				
+		// Tela LugarActivity é startada quando um marker é clicado
+		ultimoPontoNoMapa = null;
+		googleMap.setOnMarkerClickListener(new OnMarkerClickListener() {
+			
+			@Override
+			public boolean onMarkerClick(Marker marker) {
+				
+				if (ultimoPontoNoMapa != null) {
+					ultimoPontoNoMapa.hideInfoWindow();
+					
+					if (ultimoPontoNoMapa.equals(marker)) {
+						ultimoPontoNoMapa = null;
+						Lugar lugarProcurado = lugaresDeQuixada.getLugar(marker.getTitle().toString());
+						Intent intent = new Intent(getApplicationContext(), LugarActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
+						intent.putExtra(LUGAR, lugarProcurado);
+						intent.putExtra(TITULO, getTitle().toString());
+						startActivity(intent);
+					}
+				}
+				
+				ultimoPontoNoMapa = marker;
+				ultimoPontoNoMapa.showInfoWindow();
+				
+				return true;
+			}
+		});
+
+		Log.d("QUANTIDADE-LUGARES-ESCOLHIDOS", String.valueOf(lugares.size()));
+
+	}
+
 	
 	@Override
 	protected void onDestroy() {
@@ -171,6 +188,10 @@ public class MapActivity extends SherlockFragmentActivity {
 		lugaresDeQuixada = null;
 		lugares = null;
 		marcador = null;
+		googleMap = null;
 		super.onDestroy();
 	}
+
+	
+	
 }

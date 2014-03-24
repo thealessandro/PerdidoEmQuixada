@@ -47,6 +47,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends SherlockFragmentActivity {
@@ -143,8 +144,8 @@ public class MainActivity extends SherlockFragmentActivity {
 			//selectItem(0);
 		}
 		
-		/* Mapa principal */
-		mapaPrincipal();
+		/* Configurar mapa para exibição */
+		configurarMapa();
 	}
 	
 	@Override
@@ -200,13 +201,28 @@ public class MainActivity extends SherlockFragmentActivity {
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
 	
+	public void configurarMapa(){
+		// Checar se já existe o mapa está instanciado 
+		if (googleMap == null) {
+			googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map_main))).getMap();
+			
+			// Checar se ocorreu tudo bem (O mapa veio?)
+			if (googleMap != null) {
+				localizacao = new LatLng(-4.968679,-39.017086);
+				googleMap.setMyLocationEnabled(true);
+				googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+				googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(localizacao, 14));
+				mapaPrincipal();
+			} else {
+				Toast.makeText(getApplicationContext(), "Não foi possível exibir o mapa!", Toast.LENGTH_LONG).show();
+			}
+			
+		} 
+	}
+	
 	public void mapaPrincipal(){
-		
-		localizacao = new LatLng(-4.968679,-39.017086); 
-		googleMap = ((SupportMapFragment) (getSupportFragmentManager().findFragmentById(R.id.map_main))).getMap();
-		googleMap.setMyLocationEnabled(true);
-		googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(localizacao, 14));		
+	
+				
 
 		for (int i = 0; i < lugares.size(); i++) {
 			tipoDoLugar = lugares.get(i).getTipo();
@@ -258,6 +274,7 @@ public class MainActivity extends SherlockFragmentActivity {
 		lugaresDeQuixada = null;
 		menuClassificacaoLugares = null;
 		lugares = null;
+		googleMap = null;
 		
 		super.onDestroy();
 	}

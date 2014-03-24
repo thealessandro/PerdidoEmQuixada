@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Perdido em Quixadá</string>
-    <string name="version_code">Versão 1.0.7</string>
+    <string name="version_code">Versão 1.0.8</string>
     <string name="action_settings">Settings</string>
     <string name="action_mapa">Mapa</string>
     <string name="action_gps">GPS</string>
