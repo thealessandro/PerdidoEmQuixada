@@ -1,7 +1,7 @@
 Perdido em Quixadá
 ================
 
-Projeto Android para mostrar os principais lugares da cidade de Quixadá - CE - Brasil
+Projeto Android para mostrar os principais lugares da cidade de Quixadá - Ceará - Brasil
 
 Links
 =====
